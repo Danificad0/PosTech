@@ -1,77 +1,82 @@
-# 📊 VitiBrasil API — Tech Challenge FIAP
+📊 VitiBrasil API — Pós-Tech FIAP
+API desenvolvida para consulta de dados públicos sobre vitivinicultura no Brasil, disponibilizados pela Embrapa.
 
-API desenvolvida para consulta de dados públicos sobre vitivinicultura no Brasil, disponibilizados pela Embrapa. O projeto realiza extração dos dados diretamente das tabelas disponíveis no site da Embrapa, sem dependência de banco de dados.
+Este projeto foi desenvolvido como parte do Tech Challenge — Pós-Tech Machine Learning Engineering — FIAP, atendendo todos os requisitos propostos, desde o desenvolvimento da API, autenticação, scraping dos dados, documentação e deploy do MVP.
 
----
-
-## 🚀 Funcionalidade
-
-- API com scraping em tempo real dos dados das abas:
-  - Produção
-  - Processamento
-  - Comercialização
-  - Importação
-  - Exportação
-- Retorna os dados em JSON estruturado.
-- Documentação automática via Swagger.
-
----
-
-## 🏗️ Estrutura do Projeto
-
-Postech/
+🏗️ Como o projeto está organizado
+PosTech/
+│
+├── .env                    # Variáveis de ambiente (não versionado)
+├── .gitignore              # Arquivos ignorados no controle de versão
+├── README.md               # Documentação do projeto
+├── requirements.txt        # Dependências do projeto
 │
 ├── app/
-│ ├── api/ # Endpoints da API
-│ ├── core/ # Configurações gerais
-│ ├── db/ # (Futuro) Conexão com banco de dados
-│ ├── models/ # (Futuro) Modelos de dados
-│ ├── schemas/ # Schemas de validação (Pydantic)
-│ ├── services/ # Scraper dos dados
-│ └── main.py # Inicialização da API
+│   ├── api/                # Rotas da API e autenticação
+│   │   ├── auth.py         # Gerenciamento de autenticação JWT
+│   │   └── endpoints.py    # Endpoints principais (produção, processamento, etc.)
+│   │
+│   ├── core/               # Configurações de segurança e geração de tokens
+│   │   └── security.py
+│   │
+│   ├── db/                 # (Reservado para banco de dados futuro)
+│   │   └── database.py
+│   │
+│   ├── models/             # (Reservado para modelos futuros)
+│   │   └── data_models.py
+│   │
+│   ├── schemas/            # Validação de dados (Pydantic)
+│   │   └── auth.py
+│   │
+│   ├── services/           # Scraper dos dados do site da Embrapa
+│   │   └── scraper.py
+│   │
+│   └── main.py             # Inicialização da API FastAPI
 │
-├── requirements.txt # Dependências
-├── README.md # Documentação
-└── .env # Variáveis de ambiente
+└── .git/                   # Dados internos do Git
 
-yaml
-Copiar
-Editar
+🚀 Funcionalidades principais
+🔍 Scraping em tempo real dos dados públicos da Embrapa.
 
----
+📊 Endpoints REST para:
 
-## 🗺️ Arquitetura do Projeto
+Produção
 
-![Arquitetura do Projeto](./A_flowchart-style_digital_diagram_illustrates_the_.png)
+Processamento
 
-### 🔗 **Fluxo de funcionamento:**
-- 🕸️ **Scraper:** Extrai os dados diretamente das tabelas do site da Embrapa.
-- 🔗 **API (FastAPI):** Expõe os dados através de endpoints REST.
-- ☁️ **Client:** Usuários consomem os dados via API documentada (Swagger, Postman, Front-end ou outros sistemas).
-- 💾 **Banco de Dados (Futuro):** Possibilidade de persistir os dados para histórico e performance.
-- 🔒 **Autenticação (Futuro):** Pode ser implementada com JWT ou API Key.
+Comercialização
 
----
+Importação
 
-## 🚀 Deploy
+Exportação
 
-Projeto preparado para deploy em plataformas como Render, Railway ou AWS, além de permitir evolução futura para Docker e ambientes escaláveis.
+🔐 Autenticação via JWT.
 
----
+📑 Documentação automática via Swagger.
 
-## 🚀 Futuras melhorias
+☁️ Deploy online com link público.
 
-- Persistência dos dados em banco SQL/NoSQL.
-- Autenticação (JWT ou API Key).
-- Deploy com Docker.
-- Monitoramento e logs estruturados.
-- Agendamento de atualizações automáticas dos dados.
+☁️ Link do MVP
+API publicada em:
+https://postech-m8h5.onrender.com
 
----
+Documentação Swagger:
+https://postech-m8h5.onrender.com/docs
 
-## 🧠 Autor
+✅ Verificação dos requisitos
+| Requisito                                                                                       | Status                                                                    |
+| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| **Criar uma REST API em Python que faça a consulta no site da Embrapa.**                        | ✅ Feito — API funcional, faz scraping em tempo real.                      |
+| **Sua API deve estar documentada.**                                                             | ✅ Feito — Documentação automática via Swagger em `/docs`.                 |
+| **É recomendável (não obrigatório) a escolha de um método de autenticação (JWT, por exemplo).** | ✅ Feito — Autenticação com JWT implementada.                              |
+| **Criar um plano para fazer o deploy da API, desenhando a arquitetura do projeto.**             | ✅ Feito — Diagrama de arquitetura criado e README explicando a estrutura. |
+| **Fazer um MVP realizando o deploy com um link compartilhável e um repositório no GitHub.**     | ✅ Feito — API publicada no Render e repositório disponível no GitHub.     |
 
-Daniel Souza  
-Projeto desenvolvido para o **Tech Challenge — Pós Tech Machine Learning Engineering — FIAP**.
+🧠 Cenário de aplicação da API
+A API pode ser utilizada para:
 
----
+📈 Dashboards dinâmicos com dados atualizados da vitivinicultura.
+
+🔍 Análises estatísticas de produção, comercialização, importação e exportação.
+
+🤖 Alimentação de modelos futuros de Machine Learning, como previsão de produção ou tendências de mercado.
