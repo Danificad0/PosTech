@@ -1,0 +1,12 @@
+fastapi
+sqlalchemy
+pydantic
+beautifulsoup4
+pandas
+lxml
+uvicorn
+requests
+python-jose
+passlib[bcrypt]
+bcrypt==3.2.2
+python-dotenv
